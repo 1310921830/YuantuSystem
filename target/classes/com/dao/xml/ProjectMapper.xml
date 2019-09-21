@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dao.ProjectMapper" >
+	<!-- 这个元素可以被用来定义可重用的 SQL 代码段，可以包含在其他语句中-->
+	<sql id="projectColumns"> id,project_name,founder,established_time,
+	status,dept_manager_id,project_manager_id</sql>
+	
+    <select id="getAllProjects" resultType="Project">
+    	select <include refid="projectColumns"/>  
+    	from project
+    	order by established_time 
+    </select>
+    
+    <select id="getProjectsByDeptManagerId" parameterType="string" resultType="Project">
+    	select <include refid="projectColumns"/>  
+    	from project where dept_manager_id=#{deptManagerId}
+    	order by established_time 
+    </select>
+    
+    <select id="getProjectsByProjectManagerId" parameterType="string" resultType="Project">
+    	select <include refid="projectColumns"/>  
+    	from project where project_manager_id=#{projectManagerId}
+    	order by established_time 
+    </select>
+    
+    <select id="getProjectById" parameterType="string" resultType="Project">
+    	select <include refid="projectColumns"/>  
+    	from project where id=#{id}
+    </select>
+    
+    <insert id="saveProject" parameterType="Project">
+        insert  into project 
+        values (#{id},#{projectName},#{founder},#{establishedTime},
+        #{status},#{deptManagerId},#{projectManagerId})
+    </insert>
+</mapper>
