@@ -2,11 +2,9 @@ package com.service.impl;
 
 import java.util.Date;
 import java.util.UUID;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
-
 import com.dao.ProjectMapper;
 import com.dao.StaffMapper;
 import com.entity.Project;
@@ -65,8 +63,14 @@ public class ProjectServiceImpl implements ProjectService{
 	}
 
 	@Override
-	public void getProjectById(Model model, String id) {
-		model.addAttribute("project", pm.getProjectById(id));
+	public Project getProjectById(String id) {
+		return pm.getProjectById(id);
+		
+	}
+
+	@Override
+	public void getSomeProjects(Model model, String userId) {
+		model.addAttribute("projects", pm.getSomeProjects(userId));
 		
 	}
 

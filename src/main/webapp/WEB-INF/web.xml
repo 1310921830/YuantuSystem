@@ -33,14 +33,14 @@
   		<servlet-name>top</servlet-name>  
   		<url-pattern>/top</url-pattern>
   	</servlet-mapping>
-  	<servlet>  
+  	<!-- <servlet>  
   		<servlet-name>left</servlet-name>  
   		<jsp-file>/WEB-INF/left.jsp</jsp-file>
   	</servlet>
   	<servlet-mapping>  
   		<servlet-name>left</servlet-name>  
   		<url-pattern>/left</url-pattern>
-  	</servlet-mapping>
+  	</servlet-mapping> -->
   	<servlet>  
   		<servlet-name>right</servlet-name>  
   		<jsp-file>/WEB-INF/right.jsp</jsp-file>

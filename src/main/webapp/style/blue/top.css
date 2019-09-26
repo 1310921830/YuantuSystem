@@ -1,7 +1,9 @@
 body {
 	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#094c79,endcolorstr=#99caeb,gradientType=0);
 }
-
+a:hover{
+	cursor: pointer;
+}
 ul {
 	margin-left: 0px;
 	margin-bottom: 0px;
@@ -40,6 +42,7 @@ ul {
 #Head1Right {
 	float: right;
 	height: 25px;
+	margin-top: 20px;
 }
 
 #Head1Right_UserName {
@@ -48,7 +51,7 @@ ul {
 	filter: progid:DXImageTransform.Microsoft.gradient(startcolorstr=#014f83,endcolorstr=#2b6798,gradientType=1);
 	padding-top: 6px;
 	font-size: 12px;
-	font-family: "ËÎÌå";
+	font-family: "ï¿½ï¿½ï¿½ï¿½";
 	color: #b3e1ff;
 }
 
@@ -62,7 +65,7 @@ ul {
 	height: 100%;
 	padding-top: 7px;
 	font-size: 12px;
-	font-family: "ËÎÌå";
+	font-family: "ï¿½ï¿½ï¿½ï¿½";
 	color: #75abd2;
 }
 
@@ -75,7 +78,7 @@ ul {
 	background:#2b6798;
 	cursor: hand;
 	font-size: 12px;
-	font-family: "ËÎÌå";
+	font-family: "ï¿½ï¿½ï¿½ï¿½";
 	color: #f6d881;
 }
 
@@ -90,7 +93,7 @@ ul {
 
 #Head1Right_Time {
 	font-size: 12px;
-	font-family: "ËÎÌå";
+	font-family: "ï¿½ï¿½ï¿½ï¿½";
 	color: #b3e1ff;
 	float: left;
 	height: 100%;
@@ -141,7 +144,7 @@ ul {
 }
 
 #Head2_Awoke A {
-	font-family: "ËÎÌå";
+	font-family: "ï¿½ï¿½ï¿½ï¿½";
 	font-size: 12px;
 	color: #ffffff;
 	TEXT-DECORATION: none
@@ -158,14 +161,14 @@ ul {
 	float: right;
 	height: 100%;
 	padding-right: 26px;
-	font-family: "ËÎÌå";
+	font-family: "ï¿½ï¿½ï¿½ï¿½";
 	font-size: 13px;
 	color: #ffffff;
 	padding-top: 10px;
 }
 
 #Head2_FunctionList td {
-	font-family: "ËÎÌå";
+	font-family: "ï¿½ï¿½ï¿½ï¿½";
 	font-size: 12px;
 	color:#FFFFFF;
 	font-weight:bold;

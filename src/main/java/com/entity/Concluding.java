@@ -4,6 +4,8 @@ public class Concluding {
     private String id;
 
     private String title;
+    
+    private String date;
 
     private String startTime;
 
@@ -11,15 +13,29 @@ public class Concluding {
 
     private String actualFinishDate;
 
+    private String timeAnalysis;
+
     private Double expectedExpense;
 
     private Double actualExpense;
 
+    private String costAnalysis;
+
+    private String exceptDeliverables;
+
+    private String actualDeliverables;
+
+    private String undeliverables;
+
+    private String deliverablesAnalysis;
+
+    private String experience;
+
     private String projectId;
 
-    private String check;
+    private String isCheck;
 
-    private String pass;
+    private String isPass;
 
     private String opinion;
 
@@ -69,6 +85,14 @@ public class Concluding {
         this.actualFinishDate = actualFinishDate == null ? null : actualFinishDate.trim();
     }
 
+    public String getTimeAnalysis() {
+        return timeAnalysis;
+    }
+
+    public void setTimeAnalysis(String timeAnalysis) {
+        this.timeAnalysis = timeAnalysis == null ? null : timeAnalysis.trim();
+    }
+
     public Double getExpectedExpense() {
         return expectedExpense;
     }
@@ -85,6 +109,54 @@ public class Concluding {
         this.actualExpense = actualExpense;
     }
 
+    public String getCostAnalysis() {
+        return costAnalysis;
+    }
+
+    public void setCostAnalysis(String costAnalysis) {
+        this.costAnalysis = costAnalysis == null ? null : costAnalysis.trim();
+    }
+
+    public String getExceptDeliverables() {
+        return exceptDeliverables;
+    }
+
+    public void setExceptDeliverables(String exceptDeliverables) {
+        this.exceptDeliverables = exceptDeliverables == null ? null : exceptDeliverables.trim();
+    }
+
+    public String getActualDeliverables() {
+        return actualDeliverables;
+    }
+
+    public void setActualDeliverables(String actualDeliverables) {
+        this.actualDeliverables = actualDeliverables == null ? null : actualDeliverables.trim();
+    }
+
+    public String getUndeliverables() {
+        return undeliverables;
+    }
+
+    public void setUndeliverables(String undeliverables) {
+        this.undeliverables = undeliverables == null ? null : undeliverables.trim();
+    }
+
+    public String getDeliverablesAnalysis() {
+        return deliverablesAnalysis;
+    }
+
+    public void setDeliverablesAnalysis(String deliverablesAnalysis) {
+        this.deliverablesAnalysis = deliverablesAnalysis == null ? null : deliverablesAnalysis.trim();
+    }
+
+    public String getExperience() {
+        return experience;
+    }
+
+    public void setExperience(String experience) {
+        this.experience = experience == null ? null : experience.trim();
+    }
+
     public String getProjectId() {
         return projectId;
     }
@@ -93,20 +165,20 @@ public class Concluding {
         this.projectId = projectId == null ? null : projectId.trim();
     }
 
-    public String getCheck() {
-        return check;
+    public String getIsCheck() {
+        return isCheck;
     }
 
-    public void setCheck(String check) {
-        this.check = check == null ? null : check.trim();
+    public void setIsCheck(String isCheck) {
+        this.isCheck = isCheck == null ? null : isCheck.trim();
     }
 
-    public String getPass() {
-        return pass;
+    public String getIsPass() {
+        return isPass;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass == null ? null : pass.trim();
+    public void setIsPass(String isPass) {
+        this.isPass = isPass == null ? null : isPass.trim();
     }
 
     public String getOpinion() {
@@ -140,4 +212,12 @@ public class Concluding {
     public void setReviewedName(String reviewedName) {
         this.reviewedName = reviewedName == null ? null : reviewedName.trim();
     }
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 }

@@ -21,8 +21,6 @@ public class User {
 
     private String headPortrait;
 
-    private String workStatus;
-
     private Integer deptNo;
 
     public String getUserId() {
@@ -103,14 +101,6 @@ public class User {
 
     public void setHeadPortrait(String headPortrait) {
         this.headPortrait = headPortrait == null ? null : headPortrait.trim();
-    }
-
-    public String getWorkStatus() {
-        return workStatus;
-    }
-
-    public void setWorkStatus(String workStatus) {
-        this.workStatus = workStatus == null ? null : workStatus.trim();
     }
 
     public Integer getDeptNo() {

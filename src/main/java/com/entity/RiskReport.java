@@ -4,6 +4,8 @@ public class RiskReport {
     private String id;
 
     private String title;
+    
+    private String date;
 
     private String describe;
 
@@ -19,9 +21,9 @@ public class RiskReport {
 
     private String projectId;
 
-    private String check;
+    private String isCheck;
 
-    private String pass;
+    private String isPass;
 
     private String opinion;
 
@@ -103,20 +105,20 @@ public class RiskReport {
         this.projectId = projectId == null ? null : projectId.trim();
     }
 
-    public String getCheck() {
-        return check;
+    public String getIsCheck() {
+        return isCheck;
     }
 
-    public void setCheck(String check) {
-        this.check = check == null ? null : check.trim();
+    public void setIsCheck(String isCheck) {
+        this.isCheck = isCheck == null ? null : isCheck.trim();
     }
 
-    public String getPass() {
-        return pass;
+    public String getIsPass() {
+        return isPass;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass == null ? null : pass.trim();
+    public void setIsPass(String isPass) {
+        this.isPass = isPass == null ? null : isPass.trim();
     }
 
     public String getOpinion() {
@@ -150,4 +152,12 @@ public class RiskReport {
     public void setReviewedName(String reviewedName) {
         this.reviewedName = reviewedName == null ? null : reviewedName.trim();
     }
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
 }

@@ -1,6 +1,9 @@
 package com.service;
 
+import java.util.List;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
 
@@ -24,10 +27,46 @@ public interface UserService {
 	 * @return
 	 */
 	User getUser(Map<String, String> map);
-	
+	/**
+	 * @param model
+	 * @param projectId
+	 */
+	void getUsersByStaff(Model model,String projectId);
 	/**
 	 * @param model
 	 * @param position
 	 */
 	void queryUsersByPosition(Model model);
+	/**
+	 * @param model
+	 * @param deptNo
+	 */
+	void getDeptById(Model model,int deptNo);
+	/**
+	 * @param url
+	 * @param httpSession
+	 * @return
+	 */
+	int changeUserImg(String url,HttpSession httpSession);
+	/**
+	 * @param oldPwd
+	 * @param newPwd
+	 * @param httpSession
+	 * @return
+	 */
+	int updatePwd(String oldPwd,String newPwd, HttpSession httpSession);
+	/**
+	 * @param model
+	 * @param userId
+	 */
+	void getDeptManager(Model model,String userId);
+	/**
+	 * @param model
+	 * @param userId
+	 */
+	void getProjectManager(Model model,String userId);
+	/**
+	 * @return
+	 */
+	User getBoss();
 }

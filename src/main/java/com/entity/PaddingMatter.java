@@ -2,7 +2,9 @@ package com.entity;
 
 public class PaddingMatter {
     private String id;
-
+   
+    private String date;
+    
     private String title;
 
     private String type;
@@ -10,8 +12,29 @@ public class PaddingMatter {
     private String linkId;
 
     private String checkById;
+    
+    private String projectId;
+    
+    private Integer status;
+    
+    public PaddingMatter() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 
-    public String getId() {
+	public PaddingMatter(String id, String date,String title, String type, String linkId, String checkById,String projectId,Integer status) {
+		super();
+		this.id = id;
+		this.date = date;
+		this.title = title;
+		this.type = type;
+		this.linkId = linkId;
+		this.checkById = checkById;
+		this.projectId = projectId;
+		this.status = status;
+	}
+
+	public String getId() {
         return id;
     }
 
@@ -50,4 +73,28 @@ public class PaddingMatter {
     public void setCheckById(String checkById) {
         this.checkById = checkById == null ? null : checkById.trim();
     }
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public String getProjectId() {
+		return projectId;
+	}
+
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+	}
+
+	public Integer getStatus() {
+		return status;
+	}
+
+	public void setStatus(Integer status) {
+		this.status = status;
+	}
 }

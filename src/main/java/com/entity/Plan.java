@@ -7,9 +7,19 @@ public class Plan {
 
     private String date;
 
-    private String check;
+    private String bgTarget;
 
-    private String pass;
+    private String aim;
+
+    private String milestones;
+
+    private String standard;
+
+    private String requirement;
+
+    private String isCheck;
+
+    private String isPass;
 
     private String opinion;
 
@@ -45,20 +55,60 @@ public class Plan {
         this.date = date == null ? null : date.trim();
     }
 
-    public String getCheck() {
-        return check;
+    public String getBgTarget() {
+        return bgTarget;
     }
 
-    public void setCheck(String check) {
-        this.check = check == null ? null : check.trim();
+    public void setBgTarget(String bgTarget) {
+        this.bgTarget = bgTarget == null ? null : bgTarget.trim();
     }
 
-    public String getPass() {
-        return pass;
+    public String getAim() {
+        return aim;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass == null ? null : pass.trim();
+    public void setAim(String aim) {
+        this.aim = aim == null ? null : aim.trim();
+    }
+
+    public String getMilestones() {
+        return milestones;
+    }
+
+    public void setMilestones(String milestones) {
+        this.milestones = milestones == null ? null : milestones.trim();
+    }
+
+    public String getStandard() {
+        return standard;
+    }
+
+    public void setStandard(String standard) {
+        this.standard = standard == null ? null : standard.trim();
+    }
+
+    public String getRequirement() {
+        return requirement;
+    }
+
+    public void setRequirement(String requirement) {
+        this.requirement = requirement == null ? null : requirement.trim();
+    }
+
+    public String getIsCheck() {
+        return isCheck;
+    }
+
+    public void setIsCheck(String isCheck) {
+        this.isCheck = isCheck == null ? null : isCheck.trim();
+    }
+
+    public String getIsPass() {
+        return isPass;
+    }
+
+    public void setIsPass(String isPass) {
+        this.isPass = isPass == null ? null : isPass.trim();
     }
 
     public String getOpinion() {

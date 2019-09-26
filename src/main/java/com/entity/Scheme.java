@@ -5,11 +5,13 @@ public class Scheme {
 
     private String title;
 
+    private String content;
+
     private String date;
 
-    private String check;
+    private String isCheck;
 
-    private String pass;
+    private String isPass;
 
     private String opinion;
 
@@ -18,8 +20,6 @@ public class Scheme {
     private String preparedName;
 
     private String reviewedName;
-
-    private String content;
 
     public String getId() {
         return id;
@@ -37,6 +37,14 @@ public class Scheme {
         this.title = title == null ? null : title.trim();
     }
 
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content == null ? null : content.trim();
+    }
+
     public String getDate() {
         return date;
     }
@@ -45,20 +53,20 @@ public class Scheme {
         this.date = date == null ? null : date.trim();
     }
 
-    public String getCheck() {
-        return check;
+    public String getIsCheck() {
+        return isCheck;
     }
 
-    public void setCheck(String check) {
-        this.check = check == null ? null : check.trim();
+    public void setIsCheck(String isCheck) {
+        this.isCheck = isCheck == null ? null : isCheck.trim();
     }
 
-    public String getPass() {
-        return pass;
+    public String getIsPass() {
+        return isPass;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass == null ? null : pass.trim();
+    public void setIsPass(String isPass) {
+        this.isPass = isPass == null ? null : isPass.trim();
     }
 
     public String getOpinion() {
@@ -91,13 +99,5 @@ public class Scheme {
 
     public void setReviewedName(String reviewedName) {
         this.reviewedName = reviewedName == null ? null : reviewedName.trim();
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content == null ? null : content.trim();
     }
 }

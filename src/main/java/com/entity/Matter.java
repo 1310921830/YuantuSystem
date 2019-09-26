@@ -11,9 +11,9 @@ public class Matter {
 
     private String date;
 
-    private String check;
+    private String isCheck;
 
-    private String pass;
+    private String isPass;
 
     private String opinion;
 
@@ -63,20 +63,20 @@ public class Matter {
         this.date = date == null ? null : date.trim();
     }
 
-    public String getCheck() {
-        return check;
+    public String getIsCheck() {
+        return isCheck;
     }
 
-    public void setCheck(String check) {
-        this.check = check == null ? null : check.trim();
+    public void setIsCheck(String isCheck) {
+        this.isCheck = isCheck == null ? null : isCheck.trim();
     }
 
-    public String getPass() {
-        return pass;
+    public String getIsPass() {
+        return isPass;
     }
 
-    public void setPass(String pass) {
-        this.pass = pass == null ? null : pass.trim();
+    public void setIsPass(String isPass) {
+        this.isPass = isPass == null ? null : isPass.trim();
     }
 
     public String getOpinion() {

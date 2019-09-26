@@ -7,21 +7,62 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>项目列表</title>
+ 	<script language="javascript" src="js/jquery.js"></script>
+    <link type="text/css" rel="stylesheet" href="style/blue/pageCommon.css" />
+    <script type="text/javascript">
+    </script>
 </head>
 <body>
-	<ul>
-		<c:forEach items="${projects}" var="project">
-		<li>
-			${project.id}
-			${project.projectName}
-			${project.founder}
-			${project.establishedTime}
-			${project.status}
-		</li>
-		</c:forEach>
-		
-	</ul>
+	<div id="Title_bar">
+    <div id="Title_bar_Head">
+        <div id="Title_Head"></div>
+        <div id="Title"><!--页面标题-->
+            <img border="0" width="13" height="13" src="style/images/title_arrow.gif"/> 项目管理
+        </div>
+        <div id="Title_End"></div>
+    </div>
+	</div>
+
+<div id="MainArea">
+    <table cellspacing="0" cellpadding="0" class="TableStyle">
+       
+        <!-- 表头-->
+        <thead>
+            <tr align="CENTER" valign="MIDDLE" id="TableTitle">
+            	<td>项目编号</td>
+            	<td>项目名称</td>
+            	<td>发起人</td>
+            	<td>成立时间</td>
+                <td>项目状态</td>
+                <td>相关操作</td>
+            </tr>
+        </thead>
+
+		<!--显示数据列表-->
+        <tbody id="TableData" class="dataContainer" datakey="roleList">
+			<c:forEach items="${projects}" var="project">
+			<tr class="TableDetail1 template" align="CENTER">
+				<td>${project.id}</td>
+				<td>${project.projectName}</td>
+				<td>${project.founder}</td>
+				<td>${project.establishedTime}</td>
+				<td>${project.status}</td>
+				<td><img alt="" src="style/images/ar.gif"><a href="projectDetail?id=${project.id}">
+				查看更多信息</a></td>
+			</tr>
+			</c:forEach>
+        </tbody>
+    </table>
+    
+    <!-- 跳转到创建项目页面 -->
+    <div id="TableTail">
+        <div id="TableTail_inside">
+            
+        </div>
+    </div>
+</div>
+	
 	
 </body>
 </html>

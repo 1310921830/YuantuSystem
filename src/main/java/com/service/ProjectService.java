@@ -37,10 +37,14 @@ public interface ProjectService {
 	 * @param projectManagerId
 	 */
 	void getProjectsByProjectManagerId(Model model,String projectManagerId);
-	
+	/**
+	 * @param model
+	 * @param userId
+	 */
+	void getSomeProjects(Model model,String userId);
 	/**
 	 * @param model
 	 * @param id
 	 */
-	void getProjectById(Model model,String id);
+	Project getProjectById(String id);
 }

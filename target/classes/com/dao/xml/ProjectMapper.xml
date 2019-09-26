@@ -8,21 +8,29 @@
     <select id="getAllProjects" resultType="Project">
     	select <include refid="projectColumns"/>  
     	from project
-    	order by established_time 
+    	order by established_time desc 
     </select>
     
     <select id="getProjectsByDeptManagerId" parameterType="string" resultType="Project">
     	select <include refid="projectColumns"/>  
     	from project where dept_manager_id=#{deptManagerId}
-    	order by established_time 
+    	order by established_time desc 
     </select>
     
     <select id="getProjectsByProjectManagerId" parameterType="string" resultType="Project">
     	select <include refid="projectColumns"/>  
     	from project where project_manager_id=#{projectManagerId}
-    	order by established_time 
+    	order by established_time desc 
     </select>
-    
+    <select id="getSomeProjects" parameterType="string" resultType="Project">
+    	select p.id,p.project_name,p.founder,p.established_time,
+    		p.status,p.dept_manager_id,p.project_manager_id 
+    	from project p
+		inner join staff s
+		on p.id=s.project_id
+		and s.user_id=#{userId}
+		order by p.established_time desc
+	</select>
     <select id="getProjectById" parameterType="string" resultType="Project">
     	select <include refid="projectColumns"/>  
     	from project where id=#{id}

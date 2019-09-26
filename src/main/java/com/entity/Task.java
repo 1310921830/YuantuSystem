@@ -4,7 +4,7 @@ public class Task {
     private String id;
 
     private String date;
-    
+
     private Integer week;
 
     private String taskContent;
@@ -32,14 +32,14 @@ public class Task {
     }
 
     public Integer getWeek() {
-		return week;
-	}
+        return week;
+    }
 
-	public void setWeek(Integer week) {
-		this.week = week;
-	}
+    public void setWeek(Integer week) {
+        this.week = week;
+    }
 
-	public String getTaskContent() {
+    public String getTaskContent() {
         return taskContent;
     }
 

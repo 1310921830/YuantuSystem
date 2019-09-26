@@ -33,6 +33,12 @@ public interface ProjectMapper {
 	 * @return 项目经理负责项目
 	 */
 	List<Project> getProjectsByProjectManagerId(String projectManagerId);
+	
+	/**
+	 * @param userId
+	 * @return项目成员所在项目
+	 */
+	List<Project> getSomeProjects(String userId);
 	/**
 	 * @param id
 	 * @return 查询指定项目信息

@@ -10,7 +10,9 @@
 <body style="margin:0"> 
 
 <div id="StatusBar">
-
+<span style="color: white;font-size: 14px;margin-left: 500px;">
+&copy; All Rights Reserved. Designed By NanJingYuanTu
+</span>
 </div>
 
 </body>
