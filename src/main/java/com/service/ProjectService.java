@@ -47,4 +47,14 @@ public interface ProjectService {
 	 * @param id
 	 */
 	Project getProjectById(String id);
+	/**
+	 * @param project
+	 * @return
+	 */
+	int updateProcess(Project project);
+	/**
+	 * @param project
+	 * @return
+	 */
+	int updateProject(Project project);
 }

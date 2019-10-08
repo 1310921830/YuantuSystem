@@ -1,6 +1,6 @@
 package com.service;
 
-import java.util.List;
+
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -69,4 +69,9 @@ public interface UserService {
 	 * @return
 	 */
 	User getBoss();
+	/**
+	 * @param id
+	 * @return
+	 */
+	User getUserById(String id);
 }

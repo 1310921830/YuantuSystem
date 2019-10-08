@@ -18,6 +18,12 @@
     	select * from padding_matter
     	where check_by_id=#{userId}
     	and status=1
+    	order by date desc
     	
     </select>
+    <update id="updateMatter" parameterType="string">
+    	update padding_matter
+    	set status=0
+    	where link_id=#{linkId}
+    </update>
 </mapper>

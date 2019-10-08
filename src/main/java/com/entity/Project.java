@@ -10,6 +10,8 @@ public class Project {
     private String establishedTime;
 
     private String status;
+    
+    private Integer process=0;
 
     private String deptManagerId;
 
@@ -70,4 +72,12 @@ public class Project {
     public void setProjectManagerId(String projectManagerId) {
         this.projectManagerId = projectManagerId == null ? null : projectManagerId.trim();
     }
+
+	public Integer getProcess() {
+		return process;
+	}
+
+	public void setProcess(Integer process) {
+		this.process = process;
+	}
 }

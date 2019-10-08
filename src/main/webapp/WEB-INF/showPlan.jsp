@@ -8,6 +8,40 @@
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="style/blue/pageCommon.css" />
 <script src="js/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+	$(function() {
+		$("#check").click(function() {
+			var id = $('input[name="planId"]').val();
+			var isPass = $('input[name="isPass"]:checked').val();
+			var opinion = $('textarea[name="opinion"]').val();
+			if(null==isPass){
+				alert("请选择通过或不通过");
+			}else{
+				$.ajax({
+					type : "post",
+					url : "updatePlan",
+					data : {
+						"id":id,
+						"isPass":isPass,
+						"opinion":opinion
+					},
+					success : function(data) {
+						if (data == 1) {
+							alert("审核完成!");
+							window.parent.frames['menu'].location.reload();
+							window.location.href=document.referrer;
+						} else {
+							alert("审核失败!");
+							$('#form')[0].reset();
+						}
+
+					}
+					
+				});
+			};
+		})
+	})
+</script>
 </head>
 <body>
 	<!-- 标题显示 -->
@@ -164,28 +198,87 @@
 			</TBODY>
 			
 		</TABLE>
+		<c:if test="${plan.preparedName eq user.userId}">
+				<TABLE CELLSPACING="0" CELLPADDING="0" CLASS="TableStyle"
+				STYLE="width: 90%">
+					<TR ALIGN=center VALIGN=middle ID=TableTitle>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;" width="25%">是否审核</TD>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;" width="25%">
+							<c:out value="${plan.isCheck }"></c:out>
+						</TD>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;" width="25%">是否通过</TD>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;" width="25%">
+							<c:out value="${plan.isPass }"></c:out>
+						</TD>
+					</TR>
+					<TR ALIGN=center VALIGN=middle ID=TableTitle>
+						<TD colspan="6" align="left">&nbsp;&nbsp;五、批注意见</TD>
+					</TR>
+					<tr ALIGN=center VALIGN=middle ID=TableTitle>
+						<td colspan="6" rowspan="10" align="left" STYLE="border-bottom: 1px solid #94C6E7;">
+						<textarea name="opinion" rows="6" class="i1" readonly="readonly"><c:out value="${plan.opinion}"></c:out>
+						</textarea> 
+						</td>
+					</tr>
+					</TABLE>
+				</c:if>
+				<c:if test="${plan.reviewedName eq user.userId}">
+					<c:if test="${'是' eq plan.isCheck }">
+						<TABLE CELLSPACING="0" CELLPADDING="0" CLASS="TableStyle"
+				STYLE="width: 90%">
+						<TR ALIGN=center VALIGN=middle ID=TableTitle>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;">是否审核</TD>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;">
+							<c:out value="${plan.isCheck }"></c:out>
+						</TD>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;">是否通过</TD>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;">
+							<c:out value="${plan.isPass }"></c:out>
+						</TD>
+					</TR>
+					<TR ALIGN=center VALIGN=middle ID=TableTitle>
+						<TD colspan="6" align="left">&nbsp;&nbsp;五、批注意见</TD>
+					</TR>
+					<tr ALIGN=center VALIGN=middle ID=TableTitle>
+						<td colspan="6" rowspan="10" align="left" STYLE="border-bottom: 1px solid #94C6E7;">
+						<textarea name="opinion" rows="6" class="i1" readonly="readonly"><c:out value="${plan.opinion}"></c:out>
+						</textarea> 
+						</td>
+					</tr>
+					</TABLE>
+					</c:if>
+					<c:if test="${'否' eq plan.isCheck }">
+					<TABLE CELLSPACING="0" CELLPADDING="0" CLASS="TableStyle"
+				STYLE="width: 90%">	
+					<TR ALIGN=center VALIGN=middle ID=TableTitle>
+						<TD colspan="6" align="left">&nbsp;&nbsp;六、批注意见</TD>
+					</TR>
+					<tr ALIGN=center VALIGN=middle ID=TableTitle>
+						<td colspan="6" rowspan="10" align="left" STYLE="border-bottom: 1px solid #94C6E7;">
+						<textarea name="opinion" rows="6" class="i1">
+						</textarea> 
+						</td>
+					</tr>
+					</TABLE>
+					<TABLE CELLSPACING="0" CELLPADDING="0" CLASS="TableStyle"
+				STYLE="width: 90%">
+					<tr align="center">
+						<td width="50%"><b>通过</b><input type="radio" name="isPass" value="是"></td>
+						<td width="50%"><b>不通过</b><input type="radio" name="isPass" value="否"></td>
+					</tr>
+					<tr ALIGN=center VALIGN=middle ID=TableTitle>
+						<td colspan="6" rowspan="10" align="center" STYLE="border-bottom: 1px solid #94C6E7;">
+							<a id="check">审核</a>
+							<input type="hidden" name="planId" value="${plan.id}">
+						</td>
+					</tr>
+					</TABLE>	
+					</c:if>
+				</c:if>
     </form>
 </DIV>
 <DIV ID="InputDetailBar">
-<c:if test="${plan.preparedName eq user.userId}">
-	是否审核：<c:out value="${plan.isCheck }"></c:out>
-	是否通过：<c:out value="${plan.isPass }"></c:out>
-	批注意见：<c:out value="${plan.opinion }"></c:out>
-</c:if>
-<c:if test="${plan.reviewedName eq user.userId}">
-	<c:if test="${'是' eq plan.isCheck }">
-		是否审核：<c:out value="${plan.isCheck }"></c:out>
-		是否通过：<c:out value="${plan.isPass }"></c:out>
-		批注意见：<c:out value="${plan.opinion }"></c:out>
-	</c:if>
-	<c:if test="${'否' eq plan.isCheck }">
-		是否通过：<c:out value="${plan.isPass }"></c:out>
-		批注意见：<c:out value="${plan.opinion }"></c:out>
-		<input type="button" value="审核">
-	</c:if>
-</c:if>
-
-<a href="download?path=${plan.link}">附件下载</a>
+<a href="download?path=${plan.link}" id="afile">附件下载</a>
 </DIV>
 <DIV CLASS="Description">
 

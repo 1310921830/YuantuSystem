@@ -74,4 +74,16 @@ public class ProjectServiceImpl implements ProjectService{
 		
 	}
 
+	@Override
+	public int updateProcess(Project project) {
+		// TODO Auto-generated method stub
+		return pm.updateProcess(project);
+	}
+
+	@Override
+	public int updateProject(Project project) {
+		// TODO Auto-generated method stub
+		return pm.updateProject(project);
+	}
+
 }

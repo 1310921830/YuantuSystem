@@ -25,4 +25,8 @@ public interface PaddingMatterMapper {
 	 * @return
 	 */
 	List<PaddingMatter> getMatters(String userId);
+	/**
+	 * @param paddingMatter
+	 */
+	void updateMatter(String linkId);
 }

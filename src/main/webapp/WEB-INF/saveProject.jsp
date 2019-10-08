@@ -8,9 +8,10 @@
 <title>Insert title here</title>
 <script src="js/jquery-3.1.1.min.js"></script>
 <SCRIPT LANGUAGE="javascript" SRC="js/fSelect.js" CHARSET="utf-8"></SCRIPT>
+<LINK TYPE="text/css" REL="stylesheet" HREF="style/blue/fSelect.css" />
 <LINK TYPE="text/css" REL="stylesheet"
 	HREF="style/blue/pageCommon.css" />
-<LINK TYPE="text/css" REL="stylesheet" HREF="style/blue/fSelect.css" />
+
 <style type="text/css">
 	.demo1{
 		width: 100px;

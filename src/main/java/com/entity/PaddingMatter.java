@@ -1,21 +1,25 @@
 package com.entity;
 
+/**
+ * @author Administrator
+ *
+ */
 public class PaddingMatter {
     private String id;
    
-    private String date;
+    private String date;//日期
     
-    private String title;
+    private String title;//标题
 
-    private String type;
+    private String type;//类型
 
-    private String linkId;
+    private String linkId;//关联id
 
-    private String checkById;
+    private String checkById;//审核人id
     
-    private String projectId;
+    private String projectId;//项目id
     
-    private Integer status;
+    private Integer status;//状态
     
     public PaddingMatter() {
 		super();

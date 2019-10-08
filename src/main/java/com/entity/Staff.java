@@ -1,13 +1,13 @@
 package com.entity;
 
 public class Staff {
-    private String id;
+    private String id;//编号
 
-    private String projectId;
+    private String projectId;//项目id
 
-    private String userId;
+    private String userId;//员工id
 
-    private Double workFee;
+    private Double workFee=0d;//工时费
     
     
     public Staff() {

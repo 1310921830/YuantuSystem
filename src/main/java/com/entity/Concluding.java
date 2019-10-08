@@ -3,47 +3,47 @@ package com.entity;
 public class Concluding {
     private String id;
 
-    private String title;
+    private String title;//标题
     
-    private String date;
+    private String date;//日期
 
-    private String startTime;
+    private String startTime;//开始时间
 
-    private String exceptedFinishDate;
+    private String exceptedFinishDate;//计划完成时间
 
-    private String actualFinishDate;
+    private String actualFinishDate;//实际完成时间
 
-    private String timeAnalysis;
+    private String timeAnalysis;//时间分析
 
-    private Double expectedExpense;
+    private Double expectedExpense;//计划花费
 
-    private Double actualExpense;
+    private Double actualExpense;//实际花费
 
-    private String costAnalysis;
+    private String costAnalysis;//费用分析
 
-    private String exceptDeliverables;
+    private String exceptDeliverables;//计划完成成果
 
-    private String actualDeliverables;
+    private String actualDeliverables;//实际完成成果
 
-    private String undeliverables;
+    private String undeliverables;//未完成
 
-    private String deliverablesAnalysis;
+    private String deliverablesAnalysis;//完成度分析
 
-    private String experience;
+    private String experience;//总结经验
 
-    private String projectId;
+    private String projectId;//项目id
 
-    private String isCheck;
+    private String isCheck;//是否审核
 
-    private String isPass;
+    private String isPass;//是否通过
 
-    private String opinion;
+    private String opinion;//批注
 
-    private String link;
+    private String link;//附件地址
 
-    private String preparedName;
+    private String preparedName;//制作人
 
-    private String reviewedName;
+    private String reviewedName;//审核人
 
     public String getId() {
         return id;

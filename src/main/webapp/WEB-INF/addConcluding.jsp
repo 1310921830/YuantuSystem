@@ -8,8 +8,32 @@
 <title>Insert title here</title>
 <link type="text/css" rel="stylesheet" href="style/blue/pageCommon.css" />
 <script src="js/jquery-3.1.1.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style/easyui.css">
+<link rel="stylesheet" type="text/css" href="style/icon.css">
+<link rel="stylesheet" type="text/css" href="style/demo.css">
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 <script type="text/javascript">
+function myformatter(date){
+	var y = date.getFullYear();
+	var m = date.getMonth()+1;
+	var d = date.getDate();
+	return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+}
+function myparser(s){
+	if (!s) return new Date();
+	var ss = (s.split('-'));
+	var y = parseInt(ss[0],10);
+	var m = parseInt(ss[1],10);
+	var d = parseInt(ss[2],10);
+	if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+		return new Date(y,m-1,d);
+	} else {
+		return new Date();
+	}
+}
+	
 	$(function() {
+		
 		//文件上传
 		$("#upload").click(function() {
 			$.ajax({
@@ -31,6 +55,20 @@
 		$("#btn").click(function() {
 			var result = 1;
 			$(".i1").each(function() {
+				if($(this).val().length==0){
+					result=0;
+					return false;
+				};
+				
+			});
+			$(".easyui-datebox").each(function() {
+				if($(this).val().length==0){
+					result=0;
+					return false;
+				};
+				
+			});
+			$(".easyui-numberbox").each(function() {
 				if($(this).val().length==0){
 					result=0;
 					return false;
@@ -82,7 +120,7 @@
 
 	<!--显示表单内容-->
 	<DIV ID=MainArea>
-		<FORM id="form" action="addPlan" method="post">
+		<FORM id="form">
 			<DIV CLASS="ItemBlock_Title1">
 				<!-- 信息说明<DIV CLASS="ItemBlock_Title1">
         	<IMG BORDER="0" WIDTH="4" HEIGHT="7" SRC="style/blue/images/item_point.gif" /> 部署流程定义 </DIV>  -->
@@ -142,14 +180,16 @@
 					<TR ALIGN=center VALIGN=middle ID=TableTitle>
 						<TD STYLE="border-bottom: 1px solid #94C6E7;">开始时间</TD>
 						<TD STYLE="border-bottom: 1px solid #94C6E7;">
-							<input type="text" name="startTime" class="i1"></TD>
+							<input name="startTime" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" style="width:70%;"></TD>
 						<TD STYLE="border-bottom: 1px solid #94C6E7;">计划完成日期</TD>
 						<TD STYLE="border-bottom: 1px solid #94C6E7;">
-							<input type="text" name="exceptedFinishDate" class="i1">
+							<input name="exceptedFinishDate" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" style="width:70%;">
+							
 							</TD>
 						<TD STYLE="border-bottom: 1px solid #94C6E7;">实际完成日期</TD>
 						<TD STYLE="border-bottom: 1px solid #94C6E7;">
-							<input type="text" name="actualFinishDate" class="i1">
+							<input name="actualFinishDate" class="easyui-datebox" data-options="formatter:myformatter,parser:myparser" style="width:70%;">
+							
 							</TD>
 					</TR>
 					<TR ALIGN=center VALIGN=middle ID=TableTitle>
@@ -174,12 +214,14 @@
 				</THEAD>
 				<TBODY>
 					<TR ALIGN=center VALIGN=middle ID=TableTitle>
-						<TD STYLE="border-bottom: 1px solid #94C6E7;">计划费用</TD>
-						<TD STYLE="border-bottom: 1px solid #94C6E7;">
-							<input type="text" name="expectedExpense" class="i1"></TD>
-						<TD STYLE="border-bottom: 1px solid #94C6E7;">实际费用</TD>
-						<TD STYLE="border-bottom: 1px solid #94C6E7;">
-							<input type="text" name="actualExpense" class="i1">
+						<TD STYLE="border-bottom: 1px solid #94C6E7;" width="25%">计划费用/￥</TD>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;" width="25%">
+							<input name="expectedExpense" class="easyui-numberbox"  precision="2" style="width:60%;">
+							</TD>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;" width="25%">实际费用</TD>
+						<TD STYLE="border-bottom: 1px solid #94C6E7;" width="25%">
+							<input name="actualExpense" class="easyui-numberbox"  precision="2" style="width:60%;">
+							
 							</TD>
 						
 					</TR>

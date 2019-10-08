@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 
 import com.dao.PaddingMatterMapper;
+import com.entity.PaddingMatter;
 import com.service.PaddingMatterService;
 
 /**
@@ -26,5 +27,11 @@ public class PaddingMatterServiceImpl implements PaddingMatterService{
 		model.addAttribute("paddingMatters", pmm.getMatters(userId));
 		
 	}
+	@Override
+	public void updateMatter(String linkId) {
+		// TODO Auto-generated method stub
+		pmm.updateMatter(linkId);
+	}
+	
 
 }

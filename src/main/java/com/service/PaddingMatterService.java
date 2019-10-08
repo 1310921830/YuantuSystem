@@ -13,5 +13,14 @@ public interface PaddingMatterService {
 	 * @param userId
 	 */
 	void getCount(Model model,String userId);
+	/**
+	 * @param model
+	 * @param userId
+	 */
 	void getMatters(Model model,String userId);
+	
+	/**
+	 * @param linkId
+	 */
+	void updateMatter(String linkId);
 }

@@ -1,21 +1,34 @@
 package com.entity;
 
 public class Meeting {
-    private String id;
+    
+	private String id;
 
-    private String title;
+    private String title;//会议名称
 
-    private String date;
+    private String date;//日期
 
-    private String site;
+    private String site;//地址
 
-    private String minutedBy;
+    private String minutedBy;//记录人  
 
-    private String calledBy;
+    private String calledBy;//召集人
 
-    private String startTime;
+    private String startTime;//开始时间
 
-    private String duration;
+    private String duration;//持续时长
+
+    private String aim;//目标
+
+    private String attenders;//参会人员
+
+    private String materials;//发放材料
+
+    private String speakingNotes;//发言记录
+
+    private String decisions;//会议决定
+
+    private String scope;//发放范围
 
     private String projectId;
 
@@ -83,6 +96,54 @@ public class Meeting {
 
     public void setDuration(String duration) {
         this.duration = duration == null ? null : duration.trim();
+    }
+
+    public String getAim() {
+        return aim;
+    }
+
+    public void setAim(String aim) {
+        this.aim = aim == null ? null : aim.trim();
+    }
+
+    public String getAttenders() {
+        return attenders;
+    }
+
+    public void setAttenders(String attenders) {
+        this.attenders = attenders == null ? null : attenders.trim();
+    }
+
+    public String getMaterials() {
+        return materials;
+    }
+
+    public void setMaterials(String materials) {
+        this.materials = materials == null ? null : materials.trim();
+    }
+
+    public String getSpeakingNotes() {
+        return speakingNotes;
+    }
+
+    public void setSpeakingNotes(String speakingNotes) {
+        this.speakingNotes = speakingNotes == null ? null : speakingNotes.trim();
+    }
+
+    public String getDecisions() {
+        return decisions;
+    }
+
+    public void setDecisions(String decisions) {
+        this.decisions = decisions == null ? null : decisions.trim();
+    }
+
+    public String getScope() {
+        return scope;
+    }
+
+    public void setScope(String scope) {
+        this.scope = scope == null ? null : scope.trim();
     }
 
     public String getProjectId() {

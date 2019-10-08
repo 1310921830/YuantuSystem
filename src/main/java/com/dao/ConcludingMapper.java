@@ -31,4 +31,8 @@ public interface ConcludingMapper {
 	 * @return
 	 */
 	int updateConcluding(Concluding concluding);
+	/**
+	 * @param projectId
+	 */
+	void deleteConcluding(String projectId);
 }

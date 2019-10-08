@@ -8,14 +8,19 @@
 <title>Insert title here</title>
 <script src="js/jquery-3.1.1.min.js"></script>
 <link type="text/css" rel="stylesheet" href="style/blue/pageCommon.css" />
+<link rel="stylesheet" type="text/css" href="style/easyui.css">
+<link rel="stylesheet" type="text/css" href="style/icon.css">
+<link rel="stylesheet" type="text/css" href="style/demo.css">
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
 <style type="text/css">
 	#matters{
 		width:100px;
 		height:475px;
-		float: right;
+		
 		border:3px solid #4891c6;
-		position: relative;
-		top:-415px;
+		position: absolute;
+		top:50px;
+		left:1050px;
 	}
 	#matters a{
 		display: block;
@@ -29,6 +34,79 @@
 		
 	}
 </style>
+<script type="text/javascript">
+function myformatter(date){
+	var y = date.getFullYear();
+	var m = date.getMonth()+1;
+	var d = date.getDate();
+	return y+'-'+(m<10?('0'+m):m)+'-'+(d<10?('0'+d):d);
+}
+function myparser(s){
+	if (!s) return new Date();
+	var ss = (s.split('-'));
+	var y = parseInt(ss[0],10);
+	var m = parseInt(ss[1],10);
+	var d = parseInt(ss[2],10);
+	if (!isNaN(y) && !isNaN(m) && !isNaN(d)){
+		return new Date(y,m-1,d);
+	} else {
+		return new Date();
+	}
+}
+	$(function() {
+		$('#dd').datebox({
+		    
+		});
+		$("#a1").click(function() {
+			$('#w').window('open');
+		});
+		$("#btn2").click(function() {
+			$('#w').window('close');
+		});
+		//支出提交
+		$("#btn1").click(function() {
+			var result = 1;
+			$(".i1").each(function() {
+				if($(this).val().length==0){
+					result=0;
+					return false;
+				};
+				
+			});
+			$(".easyui-numberbox").each(function() {
+				if($(this).val().length==0){
+					result=0;
+					return false;
+				};
+				
+			});
+			
+			if (result==0){
+				alert("不能为空");
+			}else {
+				
+				$.ajax({
+					type : "post",
+					url : "addCost",
+					data : $('#form').serialize(),
+					success : function(data) {
+						if (data == 1) {
+							alert("提交成功!");
+							$('#form')[0].reset();
+							$('#w').window('close');
+						} else {
+							alert("提交失败!");
+							$('#form')[0].reset();
+						}
+
+					}
+					
+				});
+			};
+			
+		});
+	})
+</script>
 </head>
 <body>
 	<!-- 标题显示 -->
@@ -44,7 +122,7 @@
 
 <!--显示表单内容-->
 <DIV ID=MainArea>
-    <FORM ACTION="list.html">
+    <FORM>
         <DIV CLASS="ItemBlock_Title1"><!-- 信息说明<DIV CLASS="ItemBlock_Title1">
         	<IMG BORDER="0" WIDTH="4" HEIGHT="7" SRC="style/blue/images/item_point.gif" /> 部署流程定义 </DIV>  -->
         </DIV>
@@ -104,10 +182,12 @@
 					<TD STYLE="border-bottom: 1px solid #94C6E7;">
 						<c:out value="${projectManager.name }"></c:out>
 					</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;"></TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;"></TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;"></TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;"></TD>
+					<TD STYLE="border-bottom: 1px solid #94C6E7;">项目进度</TD>
+					<TD STYLE="border-bottom: 1px solid #94C6E7;" colspan="3">
+						<div class="easyui-progressbar" data-options="value:${project.process}" style="width:100%;text-align: left;">
+						</div>
+					</TD>
+					
 				</TR>
 			</TBODY>
 			
@@ -120,49 +200,47 @@
 			</THEAD>
 			<TBODY>
 				<TR ALIGN=center VALIGN=middle ID=TableTitle>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">项目角色</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">成员姓名</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">性别</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">年龄</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">员工号</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">部门号</TD>
+					<TD STYLE="border-bottom: 1px solid #94C6E7;" width="100">项目角色</TD>
+					<TD STYLE="border-bottom: 1px solid #94C6E7;" width="100">成员姓名</TD>
+					<TD STYLE="border-bottom: 1px solid #94C6E7;" width="100">性别</TD>
+					<TD STYLE="border-bottom: 1px solid #94C6E7;" width="150">年龄</TD>
+					<TD STYLE="border-bottom: 1px solid #94C6E7;" width="150">员工号</TD>
+					<TD STYLE="border-bottom: 1px solid #94C6E7;" width="150">部门号</TD>
+					
+					<TD STYLE="border-bottom: 1px solid #94C6E7;" width="100">
+					
+					</TD>
+					
 				</TR>
-				<TR ALIGN=center VALIGN=middle ID=TableTitle>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">项目经理</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">
-					<c:out value="${projectManager.name }"></c:out>
-					</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">
-					<c:out value="${projectManager.gender }"></c:out>
-					</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">
-					<c:out value="${projectManager.age }"></c:out>
-					</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">
-					<c:out value="${projectManager.userId }"></c:out>
-					</TD>
-					<TD STYLE="border-bottom: 1px solid #94C6E7;">
-					<c:out value="${projectManager.deptNo }"></c:out>
-					</TD>
-				</TR>
-				<c:forEach items="${users}" var="user">
+				
+				<c:forEach items="${users}" var="u">
 				<TR ALIGN=center VALIGN=middle ID=TableTitle>
 					<TD STYLE="border-bottom: 1px solid #94C6E7;">项目核心成员</TD>
 					<TD STYLE="border-bottom: 1px solid #94C6E7;">
-					<c:out value="${user.name }"></c:out>
+					<c:out value="${u.name }"></c:out>
 					</TD>
 					<TD STYLE="border-bottom: 1px solid #94C6E7;">
-					<c:out value="${user.gender }"></c:out>
+					<c:out value="${u.gender }"></c:out>
 					</TD>
 					<TD STYLE="border-bottom: 1px solid #94C6E7;">
-					<c:out value="${user.age }"></c:out>
+					<c:out value="${u.age }"></c:out>
 					</TD>
 					<TD STYLE="border-bottom: 1px solid #94C6E7;">
-					<c:out value="${user.userId }"></c:out>
+					<c:out value="${u.userId }"></c:out>
 					</TD>
 					<TD STYLE="border-bottom: 1px solid #94C6E7;">
-					<c:out value="${user.deptNo }"></c:out>
+					<c:out value="${u.deptNo }"></c:out>
 					</TD>
+					<TD STYLE="border-bottom: 1px solid #94C6E7;">
+					<c:if test="${'项目经理' eq user.position}">
+						<a href="addTask?projectId=${project.id}&userId=${u.userId}"><b>分配任务</b></a>
+					</c:if>
+					<c:if test="${'普通员工' ne user.position}">
+						<a href="queryTasks?projectId=${project.id}&userId=${u.userId}">查看任务</a>
+					</c:if>
+					
+					</TD>
+					
 				</TR>
 				</c:forEach>
 				
@@ -180,12 +258,36 @@
 					<TD STYLE="border-bottom: 1px solid #94C6E7;"> 
 					<img alt="" src="style/images/search.gif">
 					<a href="showPlan?projectId=${project.id}">项目计划</a>
-					<a href="">日报</a>
-					<a href="">周报</a>
-					<a href="">重大事项</a>
-					<a href="">风险报告</a>
-					<a href="">会议记录</a>
-                    <a href="">项目花费</a>
+					<c:if test="${'普通员工' eq user.position}">
+						<a href="showDailyReports?projectId=${project.id}&userId=${user.userId}">日报</a>
+						
+					</c:if>
+					<c:if test="${'普通员工' ne user.position}">
+						<a href="getDailyReports?projectId=${project.id}">日报</a>
+						
+					</c:if>
+					<c:if test="${'项目经理' eq user.position}">
+						
+						<a href="showWeekReports?projectId=${project.id}">周报</a>
+						
+						<a href="showRiskReports?projectId=${project.id}">风险报告</a>
+						
+					</c:if>
+					<c:if test="${'项目经理' ne user.position}">
+						
+						<a href="getWeekReports?projectId=${project.id}">周报</a>
+						
+						<a href="getRiskReports?projectId=${project.id}">风险报告</a>
+						
+					</c:if>
+					<c:if test="${'部门经理' eq user.position}">
+						<a href="showMatters?projectId=${project.id}">重大事项</a>
+					</c:if>
+					<c:if test="${'部门经理' ne user.position}">
+						<a href="getMatters?projectId=${project.id}">重大事项</a>
+					</c:if>
+                    <a href="getCosts?projectId=${project.id}">项目花费</a>
+                    <a href="showMeetings?projectId=${project.id}">会议记录</a>
                     <a href="showConcluding?projectId=${project.id}">结题报告</a>
 					</TD>
 				</TR>
@@ -199,13 +301,73 @@
 	<img alt="" src="style/images/forumpage3.gif">
 	<c:if test="${'项目经理' eq user.position}">
 		<a href="addPlan?projectId=${project.id}"><b>制定项目计划</b></a>
-		<a><b>分配任务</b></a>
-		<a><b>提交周报</b></a>
-		<a><b>财务支出</b></a>
+		
+		<a href="addWeekReport?projectId=${project.id}"><b>提交周报</b></a>
+		<a id="a1"><b>财务支出</b></a>
+		<div id="w" class="easyui-window" title="财务支出" data-options="modal:true,closed:true,iconCls:'icon-save'" style="width:500px;height:300px;padding:5px;">
+			
+				<div style="width: 100%;height: 80%;">
+					<form id="form">
+					<table align="center">
+						<tr align="center">
+							<td width="250px"><b>支出日期</b></td>
+							<td width="150px" align="left">
+								<input type="text" name="date" id="dd" class="i1" data-options="formatter:myformatter,parser:myparser">
+							</td>
+						</tr>
+						<tr align="center">
+							<td><b>支出类型</b></td>
+							<td align="left">
+								<input type="text" name="type" class="i1">
+							</td>
+						</tr>
+						<tr align="center">
+						<td><b>支出金额</b></td>
+							<td align="left"><input name="money" class="easyui-numberbox"  precision="2" style="width:60%;"></td>
+						</tr>
+						<tr align="center">
+							<td><b>项目阶段</b></td>
+							<td align="left">
+								第<input name="week" class="easyui-numberbox" data-options="min:0" style="width:50%;">周
+							</td>
+						</tr>
+						<tr align="center">
+							<td><b>备注信息</b></td>
+							<td align="left">
+								<input type="hidden" name="projectId" value="${project.id}">
+								<textarea name="remark" rows="4" class="i1"></textarea>
+							</td>
+						</tr>
+					</table>
+					</form>
+					
+				</div>
+				<div data-options="region:'south',border:false" style="text-align:center;padding:5px 0 0;margin-top: 10px;">
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-ok'" style="width:80px" id="btn1">Ok</a>&nbsp;&nbsp;
+				<a class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" style="width:80px" id="btn2">Cancel</a>
+				</div>
+			
+		</div>
+		
 		<a><b>奖惩/绩效</b></a>
-		<a><b>风险报告提交</b></a>
-		<a><b>会议记录存档</b></a>
+		<a href="addRiskReport?projectId=${project.id}"><b>风险报告提交</b></a>
+		<a href="addMeeting?projectId=${project.id}"><b>会议记录存档</b></a>
 		<a href="addConcluding?projectId=${project.id}"><b>结题报告提交</b></a>
+	</c:if>
+	<c:if test="${'部门经理' eq user.position}">
+		
+		<a href="addMatter?projectId=${project.id}"><b>重大事项上报</b></a>
+	</c:if>
+	<c:if test="${'普通员工' eq user.position}">
+		<a href="queryTasks?projectId=${project.id}&userId=${user.userId}"><b>查看任务</b></a>
+		<a href="addDailyReport?projectId=${project.id}"><b>提交日报</b></a>
+		<a><b>考勤登记</b></a>
+		<a><b>提报工时</b></a>
+	</c:if>
+	<c:if test="${'企业领导' eq user.position}">
+		
+		<a href="saveProject"><b>新建项目</b></a>
+		
 	</c:if>
 </div>
 

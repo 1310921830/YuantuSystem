@@ -3,7 +3,7 @@
 <mapper namespace="com.dao.ProjectMapper" >
 	<!-- 这个元素可以被用来定义可重用的 SQL 代码段，可以包含在其他语句中-->
 	<sql id="projectColumns"> id,project_name,founder,established_time,
-	status,dept_manager_id,project_manager_id</sql>
+	status,process,dept_manager_id,project_manager_id</sql>
 	
     <select id="getAllProjects" resultType="Project">
     	select <include refid="projectColumns"/>  
@@ -39,6 +39,16 @@
     <insert id="saveProject" parameterType="Project">
         insert  into project 
         values (#{id},#{projectName},#{founder},#{establishedTime},
-        #{status},#{deptManagerId},#{projectManagerId})
+        #{status},#{process},#{deptManagerId},#{projectManagerId})
     </insert>
+    <update id="updateProcess" parameterType="Project">
+    	update project
+    	set process=#{process}
+    	where id=#{id}
+    </update>
+    <update id="updateProject" parameterType="Project">
+    	update project
+    	set status=#{status}
+    	where id=#{id}
+    </update>
 </mapper>

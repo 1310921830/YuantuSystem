@@ -31,6 +31,8 @@ public class ConcludingServiceImpl implements ConcludingService{
 	
 	@Override
 	public int addConcliuding(Concluding concluding) {
+		//先删除之前的结题报告
+		cm.deleteConcluding(concluding.getProjectId());
 		String id = (new Date()).getTime() + "";
 		String date = DateUtil.dateString1(new Date());
 		concluding.setId(id);

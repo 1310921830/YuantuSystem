@@ -3,17 +3,23 @@ package com.entity;
 public class DailyReport {
     private String id;
 
-    private String title;
+    private String title;//标题
 
-    private String date;
+    private String date;//日期
 
-    private String workContent;
+    private String task;//任务
 
-    private String problem;
+    private String goal;//目标
 
-    private String projectId;
+    private String summary;//总结
 
-    private String userId;
+    private String problem;//问题
+
+    private String nextPlan;//下个计划
+
+    private String projectId;//项目id
+
+    
 
     private String isCheck;
 
@@ -51,12 +57,28 @@ public class DailyReport {
         this.date = date == null ? null : date.trim();
     }
 
-    public String getWorkContent() {
-        return workContent;
+    public String getTask() {
+        return task;
     }
 
-    public void setWorkContent(String workContent) {
-        this.workContent = workContent == null ? null : workContent.trim();
+    public void setTask(String task) {
+        this.task = task == null ? null : task.trim();
+    }
+
+    public String getGoal() {
+        return goal;
+    }
+
+    public void setGoal(String goal) {
+        this.goal = goal == null ? null : goal.trim();
+    }
+
+    public String getSummary() {
+        return summary;
+    }
+
+    public void setSummary(String summary) {
+        this.summary = summary == null ? null : summary.trim();
     }
 
     public String getProblem() {
@@ -67,6 +89,14 @@ public class DailyReport {
         this.problem = problem == null ? null : problem.trim();
     }
 
+    public String getNextPlan() {
+        return nextPlan;
+    }
+
+    public void setNextPlan(String nextPlan) {
+        this.nextPlan = nextPlan == null ? null : nextPlan.trim();
+    }
+
     public String getProjectId() {
         return projectId;
     }
@@ -75,14 +105,7 @@ public class DailyReport {
         this.projectId = projectId == null ? null : projectId.trim();
     }
 
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId == null ? null : userId.trim();
-    }
-
+   
     public String getIsCheck() {
         return isCheck;
     }

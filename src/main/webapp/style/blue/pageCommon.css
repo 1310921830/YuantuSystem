@@ -4,9 +4,6 @@
 img{
 	border: none;
 }
-a:hover{
-	cursor: pointer;
-}
 
 A:link {
 	COLOR: #004779; TEXT-DECORATION: none
@@ -19,6 +16,7 @@ A:active {
 }
 A:hover {
 	COLOR: #0000ff; TEXT-DECORATION: underLine;
+	cursor: pointer;
 }
 
 A.OpenWinLink:hover {
@@ -263,6 +261,7 @@ ul {
 	margin: 10px;
 	text-align: center;
 }
+
 #TableTitle a{
 	background-color: #0aa1ed;
 		width: 80px;
@@ -280,6 +279,8 @@ ul {
 	margin-top:0px;
 	margin-bottom: 5px;
 	white-space: pre-wrap;
+
+	width: 100%;
 }
 
 #TableTitle input{
@@ -298,7 +299,20 @@ ul {
   border-radius: 5px 5px 5px 5px;
 }
 
-
+#importThing{
+	  position: relative;
+  border: 1px solid #95B8E7;
+  background-color: #fff;
+  vertical-align: middle;
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  margin-bottom:5px;
+  padding: 0;
+  -moz-border-radius: 5px 5px 5px 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+}
 
 #InputDetailBar a{
 	background-color: #0aa1ed;
@@ -352,6 +366,8 @@ ul {
 	margin: 0px;
 	padding-top: 5px;
 }
+
+
 
 .Pannel_select {
 	float: left;
@@ -532,7 +548,8 @@ A.OpenWinLink:hover {
 
 #TableTitle td {
 	height: 25px;
-	 padding: 0 auto;
+	padding: 0 auto;
+	
 	border-left: 1px solid #d2d2d2;
 	border-right: 1px solid #ffffff;
 	border-top: 1px solid #d2d2d2;
@@ -1092,3 +1109,7 @@ td.tsubmitBtnTD{
 .red{
 	color: red;
 }
+#afile{
+		float: right;
+	}
+

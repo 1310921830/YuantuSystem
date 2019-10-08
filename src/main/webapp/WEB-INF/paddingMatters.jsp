@@ -55,6 +55,18 @@
 					<c:if test="${'结题报告' eq pm.type}">
 					<a href="getConcluding?id=${pm.linkId}&projectId=${pm.projectId}"><img src="style/images/point.gif"></a>
 					</c:if>
+					<c:if test="${'风险报告' eq pm.type}">
+					<a href="riskReportDetail?id=${pm.linkId}&projectId=${pm.projectId}"><img src="style/images/point.gif"></a>
+					</c:if>
+					<c:if test="${'重大事项' eq pm.type}">
+					<a href="matterDetail?id=${pm.linkId}&projectId=${pm.projectId}"><img src="style/images/point.gif"></a>
+					</c:if>
+					<c:if test="${'日报' eq pm.type}">
+					<a href="dailyReportDetail?id=${pm.linkId}&projectId=${pm.projectId}"><img src="style/images/point.gif"></a>
+					</c:if>
+					<c:if test="${'周报' eq pm.type}">
+					<a href="weekReportDetail?id=${pm.linkId}&projectId=${pm.projectId}"><img src="style/images/point.gif"></a>
+					</c:if>
 				</td>
 				<td><a href="projectDetail?id=${pm.projectId}"><img alt="" src="style/images/ar.gif"></a></td>
 				

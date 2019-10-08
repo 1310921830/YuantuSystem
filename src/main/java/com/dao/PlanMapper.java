@@ -28,4 +28,8 @@ public interface PlanMapper {
 	 * @return
 	 */
 	int updatePlan(Plan plan);
+	/**
+	 * @param id
+	 */
+	void deletePlan(String projectId);
 }

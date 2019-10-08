@@ -44,5 +44,14 @@ public interface ProjectMapper {
 	 * @return 查询指定项目信息
 	 */
 	Project getProjectById(String id);
-	
+	/**
+	 * @param project
+	 * @return
+	 */
+	int updateProcess(Project project);
+	/**
+	 * @param project
+	 * @return
+	 */
+	int updateProject(Project project);
 }

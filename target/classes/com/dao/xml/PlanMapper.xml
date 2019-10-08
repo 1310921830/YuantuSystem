@@ -23,7 +23,11 @@
     </insert>
     <update id="updatePlan" parameterType="Plan">
     	update plan set
-    	is_check=#{isCheck},is_pass=#{isPass},opinion=#{opinion}
+    	is_check='是',is_pass=#{isPass},opinion=#{opinion}
     	where id=#{id}
     </update>
+    <delete id="deletePlan" parameterType="string">
+    	delete from plan where
+    	project_id=#{projectId} 
+    </delete>
 </mapper>

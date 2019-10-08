@@ -1,11 +1,11 @@
 package com.entity;
 
 public class Dept {
-    private Integer deptNo;
+    private Integer deptNo;//部门号
 
-    private String deptName;
+    private String deptName;//部门名称
 
-    private String deptSite;
+    private String deptSite;//部门地址
 
     public Integer getDeptNo() {
         return deptNo;

@@ -2,102 +2,80 @@ package com.entity;
 
 public class Cost {
     private String id;
+    
+    private String date;//日期
+    
+    private String week;//项目周期
+    
+    private String type;//类型
+    
+    private Double money;//金额
 
-    private String title;
+    private String remark;//备注
 
-    private String date;
-
-    private String type;
-
-    private Double money;
-
-    private String remark;
-
-    private Integer noticeLevel;
-
-    private String projectId;
-
-    private String preparedName;
-
-    private String reviewedName;
-
+    private String projectId;//项目id
+    
     public String getId() {
-        return id;
-    }
+		return id;
+	}
 
-    public void setId(String id) {
-        this.id = id == null ? null : id.trim();
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getTitle() {
-        return title;
-    }
+	public String getDate() {
+		return date;
+	}
 
-    public void setTitle(String title) {
-        this.title = title == null ? null : title.trim();
-    }
+	public void setDate(String date) {
+		this.date = date;
+	}
 
-    public String getDate() {
-        return date;
-    }
+	public String getWeek() {
+		return week;
+	}
 
-    public void setDate(String date) {
-        this.date = date == null ? null : date.trim();
-    }
+	public void setWeek(String week) {
+		this.week = week;
+	}
 
-    public String getType() {
-        return type;
-    }
+	public String getType() {
+		return type;
+	}
 
-    public void setType(String type) {
-        this.type = type == null ? null : type.trim();
-    }
+	public void setType(String type) {
+		this.type = type;
+	}
 
-    public Double getMoney() {
-        return money;
-    }
+	public Double getMoney() {
+		return money;
+	}
 
-    public void setMoney(Double money) {
-        this.money = money;
-    }
+	public void setMoney(Double money) {
+		this.money = money;
+	}
 
-    public String getRemark() {
-        return remark;
-    }
+	public String getRemark() {
+		return remark;
+	}
 
-    public void setRemark(String remark) {
-        this.remark = remark == null ? null : remark.trim();
-    }
+	public void setRemark(String remark) {
+		this.remark = remark;
+	}
 
-    public Integer getNoticeLevel() {
-        return noticeLevel;
-    }
+	
 
-    public void setNoticeLevel(Integer noticeLevel) {
-        this.noticeLevel = noticeLevel;
-    }
+	public String getProjectId() {
+		return projectId;
+	}
 
-    public String getProjectId() {
-        return projectId;
-    }
+	public void setProjectId(String projectId) {
+		this.projectId = projectId;
+	}
 
-    public void setProjectId(String projectId) {
-        this.projectId = projectId == null ? null : projectId.trim();
-    }
+	
 
-    public String getPreparedName() {
-        return preparedName;
-    }
+    
 
-    public void setPreparedName(String preparedName) {
-        this.preparedName = preparedName == null ? null : preparedName.trim();
-    }
-
-    public String getReviewedName() {
-        return reviewedName;
-    }
-
-    public void setReviewedName(String reviewedName) {
-        this.reviewedName = reviewedName == null ? null : reviewedName.trim();
-    }
+   
 }

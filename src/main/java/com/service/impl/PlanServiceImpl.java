@@ -30,6 +30,8 @@ public class PlanServiceImpl implements PlanService {
 
 	@Override
 	public int addPlan(Plan plan) {
+		//先删除之前的计划
+		pm.deletePlan(plan.getProjectId());
 		String id = (new Date()).getTime() + "";
 		String date = DateUtil.dateString1(new Date());
 		plan.setId(id);

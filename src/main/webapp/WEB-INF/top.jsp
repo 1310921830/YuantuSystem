@@ -43,7 +43,7 @@
     <div id="Head2">
         <div id="Head2_Awoke">
             <ul id="AwokeNum">
-                <li><a target="right" href="userInfo">
+                <li><a target="right" href="userInfo?deptNo=${user.deptNo}">
 						<img border="0" width="11" height="13" src="style/images/top/user_setup.gif" /> 
 						<span id="msg">用户设置</span>
 					</a>

@@ -25,10 +25,13 @@
     </insert>
     <update id="updateConcluding" parameterType="Concluding">
     	update concluding set
-    	is_check=#{isCheck},is_pass=#{isPass},opinion=#{opinion}
+    	is_check='是',is_pass=#{isPass},opinion=#{opinion}
     	where id=#{id}
     </update>
-	
+	<delete id="deleteConcluding" parameterType="string">
+		delete from concluding
+		where project_id=#{projectId} 
+	</delete>
     
     
 </mapper>
